@@ -1,6 +1,6 @@
 # 4D_Radar_Moving_Instance_Segmentation
 
-![Demo](Demo_1.gif)
+![Demo](Demo.gif)
 
 
 # Environment setting
