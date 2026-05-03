@@ -38,5 +38,19 @@ class ITRI_Dataset(Dataset):
 
 ```
 
+# Training
+To train the model, run the following command in the terminal:
+```bash
+python train.py
+```
+After training starts, a results folder will be automatically created. The folder name indicates the time at which the training process was started. The folder also stores the top 5 model weights based on their performance on the validation dataset.
+
+# Evaluation
+To evaluation the model, run the following command in the terminal:
+```bash
+python inference.py xxxx-xx-xx_xx-xx
+```
+Here, xxxx-xx-xx_xx-xx represents the timestamp of when the training process was started. The script will evaluate the saved top 5 model weights and report the best score.
+
 # Code reference
 The pytorch implementation of [flownet3d](https://github.com/xingyul/flownet3d) based on [WangYueFt/dcp](https://github.com/WangYueFt/dcp), [sshaoshuai/Pointnet2.PyTorch](https://github.com/sshaoshuai/Pointnet2.PyTorch) and [yanx27/Pointnet_Pointnet2_pytorch](https://github.com/yanx27/Pointnet_Pointnet2_pytorch)
