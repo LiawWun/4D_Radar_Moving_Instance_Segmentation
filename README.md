@@ -18,7 +18,25 @@ cd ../
 ```
 # Dataset download
 
-ITRI 4D radar dataset can be download from this link(to be add).
+The ITRI 4D radar dataset can be downloaded from the link below (to be added). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
+
+After downloading the dataset, modify the self.base_folder path in /dataset/itri_dataset.py:
+
+```python
+class ITRI_Dataset(Dataset):
+
+    def __init__(self, mode='train', transform=None, num_frame=2):
+
+        self.mode = mode
+        self.num_frame = num_frame
+        assert 2 <= self.num_frame <= 5, "num_frame must be between 2 and 5 (inclusive)."
+        self.transform = transform
+
+        self.base_folder =  # Put the path to the dataset here
+        self.train_seq = ["seq0", "seq3", "seq4", "seq5", "seq6", "seq7", "seq9", "seq12", "seq13", "seq14", "seq16", "seq17", "seq18", "seq19", "seq20", "seq21", "seq22", "seq23"]
+        self.val_seq   = ["seq1", "seq2", "seq8", "seq11", "seq15"]
+
+```
 
 # Code reference
 The pytorch implementation of [flownet3d](https://github.com/xingyul/flownet3d) based on [WangYueFt/dcp](https://github.com/WangYueFt/dcp), [sshaoshuai/Pointnet2.PyTorch](https://github.com/sshaoshuai/Pointnet2.PyTorch) and [yanx27/Pointnet_Pointnet2_pytorch](https://github.com/yanx27/Pointnet_Pointnet2_pytorch)
