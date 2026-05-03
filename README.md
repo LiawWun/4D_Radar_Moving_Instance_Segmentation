@@ -18,7 +18,7 @@ cd ../
 ```
 # Dataset download
 
-The ITRI 4D radar dataset can be downloaded from the link below (to be added). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
+The ITRI 4D radar dataset can be downloaded from [this link](http://gofile.me/6FrXV/PbOb3ThTQ). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
 
 After downloading the dataset, modify the self.base_folder path in /dataset/itri_dataset.py:
 
