@@ -1,6 +1,7 @@
 # 4D_Radar_Moving_Instance_Segmentation
 
-[Moving Instance Segmentation](Radar_Moving_Instance_Segmentation_Demo.gif)
+Moving Instance Segmentation
+![Moving Instance Segmentation](Radar_Moving_Instance_Segmentation_Demo.gif)
 
 
 
