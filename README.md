@@ -1,9 +1,9 @@
 # 4D_Radar_Moving_Instance_Segmentation
 
-Motion Segmentation
+Motion Segmentation (Seq 15)
 ![Motion Segmentation](/demo_video/Motion_Segmentation_Demo.gif)
 
-Moving Instance Segmentation
+Moving Instance Segmentation (Seq 11)
 ![Moving Instance Segmentation](/demo_video/Radar_Moving_Instance_Segmentation_Demo.gif)
 
 
@@ -65,6 +65,10 @@ Here, xxxx-xx-xx_xx-xx represents the timestamp of when the training process was
 # Reproducibility
 
 Some operations in the code are inherently non-deterministic (e.g., [`atomicAdd`](https://glaringlee.github.io/notes/randomness.html#:~:text=There%20are%20some%20PyTorch%20functions,order%20of%20additions%20being%20nondetermnistic.)) and cannot be fully controlled by random seeds. Therefore, slight performance variations may be observed. Results may also vary across different GPUs and CUDA versions.
+
+# Future work
+A potential direction for this work is transitioning to a **self-supervised learning** framework to overcome the **LiDAR labeling bottleneck**. Since LiDAR becomes too sparse at long ranges for manual annotation, we aim to use [pseudo-labeling techniques](https://ieeexplore.ieee.org/abstract/document/6728341) to train on unlabeled far-field data. This would allow the method to fully leverage the long-range sensing capabilities of 4D Radar beyond the limits of LiDAR-based ground truth.
+
 
 # Code reference
 The pytorch implementation of [flownet3d](https://github.com/xingyul/flownet3d) based on [WangYueFt/dcp](https://github.com/WangYueFt/dcp), [sshaoshuai/Pointnet2.PyTorch](https://github.com/sshaoshuai/Pointnet2.PyTorch) and [yanx27/Pointnet_Pointnet2_pytorch](https://github.com/yanx27/Pointnet_Pointnet2_pytorch)
