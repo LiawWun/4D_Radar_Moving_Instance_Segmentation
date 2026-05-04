@@ -40,11 +40,13 @@ class ITRI_Dataset(Dataset):
         assert 2 <= self.num_frame <= 5, "num_frame must be between 2 and 5 (inclusive)."
         self.transform = transform
 
-        self.base_folder =  # Put the path to the dataset here
+        self.base_folder = "/your/path/here/"
         self.train_seq = ["seq0", "seq3", "seq4", "seq5", "seq6", "seq7", "seq9", "seq12", "seq13", "seq14", "seq16", "seq17", "seq18", "seq19", "seq20", "seq21", "seq22", "seq23"]
         self.val_seq   = ["seq1", "seq2", "seq8", "seq11", "seq15"]
 
 ```
+
+The input radar point cloud is limited to a range of 50 meters. The ego velocity used to compensate for Doppler measurements is calculated based on [this paper](https://ieeexplore.ieee.org/abstract/document/6728341). 
 
 # Training
 To train the model, run the following command in the terminal:
