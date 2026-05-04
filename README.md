@@ -61,7 +61,8 @@ python inference.py xxxx-xx-xx_xx-xx
 Here, xxxx-xx-xx_xx-xx represents the timestamp of when the training process was started. The script will evaluate the saved top 5 model weights and report the best score.
 
 # Reproducibility
-Some operations in the code are inherently non-deterministic (e.g., [`atomicAdd`](https://glaringlee.github.io/notes/randomness.html#:~:text=There%20are%20some%20PyTorch%20functions,order%20of%20additions%20being%20nondetermnistic.)) and cannot be fully controlled by random seeds. Therefore, a performance variation of approximately 1 ~ 2% may be observed.
+
+Some operations in the code are inherently non-deterministic (e.g., [`atomicAdd`](https://glaringlee.github.io/notes/randomness.html#:~:text=There%20are%20some%20PyTorch%20functions,order%20of%20additions%20being%20nondetermnistic.)) and cannot be fully controlled by random seeds. Therefore, a performance variation of approximately 1–2% may be observed. Results may also vary slightly across different GPUs and CUDA versions.
 
 # Code reference
 The pytorch implementation of [flownet3d](https://github.com/xingyul/flownet3d) based on [WangYueFt/dcp](https://github.com/WangYueFt/dcp), [sshaoshuai/Pointnet2.PyTorch](https://github.com/sshaoshuai/Pointnet2.PyTorch) and [yanx27/Pointnet_Pointnet2_pytorch](https://github.com/yanx27/Pointnet_Pointnet2_pytorch)
