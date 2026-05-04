@@ -26,7 +26,7 @@ cd ../
 ```
 # Dataset download
 
-The ITRI 4D radar dataset can be downloaded from [this link](http://gofile.me/6FrXV/i9MbvAyGX). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
+The ITRI 4D radar dataset can be downloaded from this link (to be added). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
 
 After downloading the dataset, modify the self.base_folder path in /dataset/itri_dataset.py:
 
@@ -67,7 +67,7 @@ Here, xxxx-xx-xx_xx-xx represents the timestamp of when the training process was
 Some operations in the code are inherently non-deterministic (e.g., [`atomicAdd`](https://glaringlee.github.io/notes/randomness.html#:~:text=There%20are%20some%20PyTorch%20functions,order%20of%20additions%20being%20nondetermnistic.)) and cannot be fully controlled by random seeds. Therefore, slight performance variations may be observed. Results may also vary across different GPUs and CUDA versions.
 
 # Future work
-A potential direction for this work is transitioning to a **self-supervised learning** framework to overcome the **LiDAR labeling bottleneck**. Since LiDAR becomes too sparse at long ranges for manual annotation, we aim to use [pseudo-labeling techniques](https://ieeexplore.ieee.org/abstract/document/6728341) to train on unlabeled far-field data. This would allow the method to fully leverage the long-range sensing capabilities of 4D Radar beyond the limits of LiDAR-based ground truth.
+A potential direction for this work is transitioning to a **self-supervised learning** framework to overcome the **LiDAR labeling bottleneck**. Since LiDAR becomes too sparse at long ranges for manual annotation, we aim to use [this paper](https://ieeexplore.ieee.org/abstract/document/6728341) to generate pseudo-label to train on unlabeled far-field data. This would allow the method to fully leverage the long-range sensing capabilities of 4D Radar beyond the limits of LiDAR-based ground truth.
 
 
 # Code reference
