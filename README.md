@@ -29,7 +29,7 @@ cd ../
 The ITRI 4D Radar Dataset can be downloaded from the following links:
 
 - **Radar point cloud only**: TO BE ADD.  
-- **Full dataset** (including raw bag data, camera data, LiDAR data, pose information, and LiDAR bounding box annotations): TO BE ADD.
+- **Full dataset** (including raw bag data, camera data, LiDAR data, pose information, and LiDAR bounding box annotations):  TO BE ADD.
 
 After downloading the dataset, organize the folder structure as follows:
 
@@ -64,8 +64,8 @@ class ITRI_Dataset(Dataset):
 
 # Radar Point Cloud Fields
 
-The input radar point cloud is limited to a sensing range of 50 meters.  
-Each radar point contains the following 12 fields:
+The input radar point cloud is cropped to a sensing range of 50 meters. 
+Each point consists of the following 12 fields:
 
 1. **x, y, z**: 3D position coordinates  
 2. **RCS**: Radar Cross Section (RCS) measurement  
