@@ -26,9 +26,24 @@ cd ../
 ```
 # Dataset download
 
-The ITRI 4D radar dataset can be downloaded from this link (to be added). This file contains only radar data. For the full dataset, including camera and LiDAR data, please use the following link (to be added).
+The ITRI 4D Radar Dataset can be downloaded from the following links:
 
-After downloading the dataset, modify the self.base_folder path in /dataset/itri_dataset.py:
+- **Radar point cloud only**: TO BE ADD.  
+- **Full dataset** (including raw bag data, camera data, LiDAR data, pose information, and LiDAR bounding box annotations): TO BE ADD.
+
+After downloading the dataset, organize the folder structure as follows:
+
+```bash
+dataset_folder/
+├── seq0/
+├── seq1/
+├── seq2/
+├── seq3/
+├── ...
+└── seq23/
+```
+
+Then, modify the `self.base_folder` path in `/dataset/itri_dataset.py` to point to your dataset directory:
 
 ```python
 class ITRI_Dataset(Dataset):
@@ -46,7 +61,20 @@ class ITRI_Dataset(Dataset):
 
 ```
 
-The input radar point cloud is limited to a range of 50 meters. The ego velocity used to compensate for Doppler measurements is calculated based on [this paper](https://ieeexplore.ieee.org/abstract/document/6728341). 
+
+# Radar Point Cloud Fields
+
+The input radar point cloud is limited to a sensing range of 50 meters.  
+Each radar point contains the following 12 fields:
+
+1. **x, y, z**: 3D position coordinates  
+2. **RCS**: Radar Cross Section (RCS) measurement  
+3. **v_r**: Raw Doppler velocity measurement  
+4. **v_r_compensated**: Ego-motion compensated Doppler velocity. The ego velocity used for Doppler compensation is calculated based on [this paper](https://ieeexplore.ieee.org/abstract/document/6728341).  
+5. **moving_mask**: Binary mask indicating whether the point is moving (`1`) or static (`0`)  
+6. **cluster_id**: Cluster ID for moving objects. Static points are assigned `-1`  
+7. **xc, yc, zc**: Center position of the associated moving cluster. Static points are assigned `(0, 0, 0)`  
+8. **time_idx**: Temporal index of the frame. `0` represents the current frame, `1` represents frame `t-1`, and so on.
 
 # Training
 To train the model, run the following command in the terminal:
@@ -68,7 +96,6 @@ Some operations in the code are inherently non-deterministic (e.g., [`atomicAdd`
 
 # Future work
 A potential direction for this work is transitioning to a **self-supervised learning** framework to overcome the **LiDAR labeling bottleneck**. Since LiDAR becomes too sparse at long ranges for manual annotation, we aim to use [this paper](https://ieeexplore.ieee.org/abstract/document/6728341) to generate pseudo-label to train on unlabeled far-field data. This would allow the method to fully leverage the long-range sensing capabilities of 4D Radar beyond the limits of LiDAR-based ground truth.
-
 
 # Code reference
 The pytorch implementation of [flownet3d](https://github.com/xingyul/flownet3d) based on [WangYueFt/dcp](https://github.com/WangYueFt/dcp), [sshaoshuai/Pointnet2.PyTorch](https://github.com/sshaoshuai/Pointnet2.PyTorch) and [yanx27/Pointnet_Pointnet2_pytorch](https://github.com/yanx27/Pointnet_Pointnet2_pytorch)
